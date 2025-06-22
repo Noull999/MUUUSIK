@@ -5,10 +5,17 @@ import discord
 from discord.ext import commands
 import os
 from dotenv import load_dotenv
-
+from config import TOKEN, PREFIX
 # Carga las variables de entorno
 load_dotenv()
 
+client = discord.Client()
+
+@client.event
+async def on_ready():
+    print(f'Bot conectado como {client.user}')
+    
+client.run(TOKEN)
 TOKEN = os.getenv('DISCORD_TOKEN')
 if not TOKEN:
     raise ValueError("No se encontró el token en .env")
