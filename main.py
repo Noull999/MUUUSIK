@@ -22,6 +22,8 @@ async def load_extensions():
 async def on_ready():
     print(f'{bot.user} ha iniciado sesión!')
 
+bot.run(TOKEN) 
+
 async def main():
     await load_extensions()
     await bot.start(TOKEN)  # Usa la variable directamente
